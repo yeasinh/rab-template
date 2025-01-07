@@ -1,0 +1,13 @@
+.menu-fix-margin-top {
+  margin-top: 207px;
+}
+
+.link-hover:hover {
+  color: #00b4de !important;
+  transition: all 0.3s;
+  font-weight: 700;
+}
+
+.hide-wrapper {
+  display: none;
+}

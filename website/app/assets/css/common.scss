@@ -1,0 +1,473 @@
+@use "variables.scss" as *;
+
+body {
+  font-family: $main-font-family;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.table {
+  thead {
+    th {
+      background: #2c2c2c;
+      border-color: #3a3a3a;
+      text-align: center;
+      vertical-align: middle;
+      // font-weight: 400;
+    }
+  }
+
+  tbody {
+    td {
+      background: #1f1f1f;
+      border-color: #3a3a3a;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}
+
+.table-hover > tbody > tr:hover > * {
+  background: #32363a;
+}
+
+.main-page-area {
+  padding: 80px 0;
+  background: $bg-color-2;
+  margin-top: 212px !important;
+
+  .recent-blog {
+    margin-bottom: 25px;
+  }
+}
+
+.quick-link-wrapper {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  color: $white-color;
+  background: $color-222;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: rgba(117, 111, 167, 0.25) -2px 1px 5px -1px,
+    rgba(126, 127, 177, 0.3) -1px 0px 4px -1px;
+  z-index: 1000;
+
+  .toggle-wrapper {
+    padding: 12px;
+    background: #3a3a3a;
+    border-radius: 5px 0 0 5px;
+
+    a {
+      color: $color-ccc;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+
+  .link-items-wrapper-none {
+    display: none;
+    position: relative;
+    top: 0;
+    left: 80px;
+    background: #222222;
+    transition: all linear 0.2s;
+  }
+
+  .link-items-wrapper {
+    padding: 15px;
+
+    .btn-group {
+      display: block;
+
+      button {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+
+        &::before {
+          display: none;
+        }
+
+        p {
+          margin: 8px 0 0;
+          color: $color-ccc;
+          font-size: 1rem;
+
+          &:hover {
+            color: $link-color;
+          }
+        }
+      }
+
+      .dropdown-menu {
+        position: relative;
+        padding: 10px;
+        background: #303034;
+        border-color: #43434c;
+        transform: translate(-90px, 0px) !important;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 15px;
+          right: -12px;
+          width: 0;
+          height: 0;
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-left: 12px solid #303034;
+        }
+
+        li {
+          a {
+            color: $color-ccc;
+            border-radius: 5px;
+
+            &:hover {
+              color: $white-color;
+              background: rgb(87 94 98 / 25%);
+            }
+
+            svg {
+              color: $color-ccc;
+            }
+
+            span {
+              margin-left: 3px;
+              font-size: 1.16rem;
+              vertical-align: text-top;
+            }
+          }
+        }
+      }
+    }
+
+    svg {
+      color: $link-color;
+    }
+
+    .important-links {
+      margin-bottom: 15px;
+    }
+
+    .social-link {
+      .btn-group {
+        .dropdown-menu {
+          li {
+            a {
+              padding: 0.5rem;
+
+              .social-icon {
+                margin: 0;
+                vertical-align: middle;
+                background: #222;
+                width: 32px;
+                height: 32px;
+                display: inline-block;
+                line-height: 0;
+                padding: 7px;
+                margin-right: 8px;
+                border-radius: 4px;
+
+                svg {
+                  color: $white-color;
+                }
+              }
+
+              .facebook {
+                background: #3d6dff;
+              }
+
+              .twitter {
+                background: #529ff0;
+              }
+
+              .google-plus {
+                background: #dc5345;
+              }
+
+              .linkedin {
+                background: #386bc9;
+              }
+
+              .instagram {
+                background: #ec8f4d;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.backToTop-wrapper {
+  position: fixed;
+  top: 85%;
+  right: 40px;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  background: rgb(12, 0, 255);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(150, 255, 79) 100%);
+  border-radius: 50%;
+  text-align: center;
+  padding: 7px 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all 1s ease-in-out;
+
+  &:hover {
+    background: linear-gradient(0deg, rgb(150, 255, 79) 0%, rgb(0, 0, 0) 100%);
+    box-shadow: rgb(255 255 255 / 25%) 0px 54px 55px,
+      rgb(255 255 255 / 12%) 0px -12px 30px, rgb(255 255 255 / 12%) 0px 4px 6px,
+      rgb(255 255 255 / 17%) 0px 12px 13px, rgb(255 255 255 / 9%) 0px -3px 5px;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.banner-area .banner-img {
+  overflow: hidden;
+}
+
+.offcanvas-body {
+  background: #222222;
+}
+.page-link.active {
+  background-color: $link-color !important;
+}
+// Mobile Screen Responsive
+
+@media screen and (max-width: 768px) {
+  .header-contact-area p {
+    display: none;
+  }
+
+  .menu-fix-margin-top {
+    margin-top: 168px !important;
+  }
+
+  .banner-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .banner-img video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .banner-area .banner-img {
+    height: 250px;
+  }
+
+  .about-rab-area {
+    margin-top: -7px;
+  }
+
+  .quick-link-wrapper {
+    top: 30%;
+  }
+
+  // About rab Home page responsive
+  .director-text {
+    padding-top: 20px;
+  }
+
+  // recent blog responsive
+  .recent-blog-container .slick-next {
+    display: none !important;
+  }
+
+  .recent-blog-container .slick-prev {
+    display: none !important;
+  }
+
+  .gov-num-box-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .gov-num-box-area .gov-num-box {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .rab-battalions-area .rab-battalions-btn ul li a {
+    padding: 10px 30px !important;
+  }
+
+  .close_button {
+    right: 24px !important;
+  }
+
+  // About Page
+  .page-main {
+    margin-top: 168px !important;
+  }
+
+  .RAB_Monogram_area .RAB_Monogram-img img {
+    width: 100px !important;
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  .rab_headquarter_area .rab_headquarter_treeview::after {
+    display: none;
+  }
+
+  .tree_main_1::after {
+    display: none;
+  }
+
+  .tree_main_2::after {
+    display: none;
+  }
+
+  .rab_headquarter_area
+    .rab_headquarter_treeview
+    .tree_box
+    .tree_main_1
+    .tree_main {
+    margin-right: 0 !important;
+  }
+
+  .rab_headquarter_area
+    .rab_headquarter_treeview
+    .tree_box
+    .tree_main_2
+    .tree_main {
+    margin-right: 0;
+  }
+
+  .rab_headquarter_area
+    .rab_headquarter_treeview
+    .tree_box
+    .tree_main_2
+    .tree_main {
+    margin-left: 0 !important;
+  }
+
+  .tree_sub_box-2 {
+    margin-right: 0 !important;
+  }
+
+  .rab_photo_gallery_area
+    .rab_photo_gallery_slider
+    .rab_photo_gallery_slider_img
+    img {
+    width: 100%;
+    height: 300px !important;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .table_btn span {
+    display: none !important;
+  }
+}
+
+// Tablet Screen Responsive
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .menu-fix-margin-top {
+    margin-top: 168px !important;
+  }
+
+  .header-logo img {
+    width: 80px !important;
+    height: 80px;
+  }
+
+  .banner-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .banner-img video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .gov-num-box-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .gov-num-box-area .gov-num-box {
+    flex: 1 1 calc(33.33% - 10px);
+  }
+
+  .close_button {
+    right: 40px !important;
+  }
+
+  // About Page
+  .page-main {
+    margin-top: 165px !important;
+  }
+
+  .RAB_Monogram_area .RAB_Monogram-img img {
+    width: 100px !important;
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  .tree_main {
+    margin-left: 0px !important;
+  }
+
+  .rab_headquarter_area .rab_headquarter_treeview::after {
+    display: none;
+  }
+
+  .tree_main_1::after {
+    display: none;
+  }
+
+  .tree_main_2::after {
+    display: none;
+  }
+
+  .rab_headquarter_area
+    .rab_headquarter_treeview
+    .tree_box
+    .tree_main_1
+    .tree_main {
+    margin-right: 0 !important;
+  }
+
+  .rab_headquarter_area
+    .rab_headquarter_treeview
+    .tree_box
+    .tree_main_2
+    .tree_main {
+    margin-right: 0;
+  }
+
+  .tree_sub_box-2 {
+    margin-right: 0 !important;
+  }
+  .table_btn span {
+    display: none !important;
+  }
+}

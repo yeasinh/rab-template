@@ -1,0 +1,20 @@
+ <xml version="1.0" encoding="UTF-8">
+   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+     <url>
+       <loc>https://www.rab.gov.bd/pages/home</loc>
+       <lastmod>2024-12-06</lastmod>
+     </url>
+     <url>
+       <loc>https://www.rab.gov.bd/pages/about</loc>
+        <lastmod>2024-12-06</lastmod>
+     </url>
+     <url>
+       <loc>https://www.rab.gov.bd/pages/message</loc>
+        <lastmod>2024-12-06</lastmod>
+     </url>
+     <url>
+       <loc>https://www.rab.gov.bd/pages/battalions</loc>
+        <lastmod>2024-12-06</lastmod>
+     </url>
+   </urlset>
+   </xml>

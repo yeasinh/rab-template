@@ -1,0 +1,33 @@
+.ads_banner {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  background: rgb(0 0 0 / 60%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .ads_content {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    &__image {
+      border: 10px solid #fff;
+    }
+  }
+}
+
+.close_button {
+  background-color: #efe509;
+  border: 2px solid #00b4de;
+  font-family: sans-serif;
+  font-weight: bold;
+  border-radius: 50px;
+  font-size: 18px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
