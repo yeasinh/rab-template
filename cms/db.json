@@ -1,0 +1,344 @@
+{
+  "roles": [
+    {
+      "id": "1",
+      "roleName": "Admin"
+    },
+    {
+      "id": "2",
+      "roleName": "User"
+    },
+    {
+      "id": "3",
+      "roleName": "Editor"
+    },
+    {
+      "id": "4",
+      "roleName": "Moderator"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "nameEn": "John Doe",
+      "nameBn": "জন ডো",
+      "email": "john@example.com",
+      "password": "password123",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "nameEn": "Jane Smith",
+      "nameBn": "জেন স্মিথ",
+      "email": "jane@example.com",
+      "password": "password456",
+      "role": "User"
+    },
+    {
+      "id": "3",
+      "nameEn": "David Lee",
+      "nameBn": "ডেভিড লি",
+      "email": "david@example.com",
+      "password": "password789",
+      "role": "Editor"
+    },
+    {
+      "id": "4",
+      "nameEn": "Maria Garcia",
+      "nameBn": "মারিয়া গার্সিয়া",
+      "email": "maria@example.com",
+      "password": "password012",
+      "role": "User"
+    },
+    {
+      "id": "5",
+      "nameEn": "Chen Wang",
+      "nameBn": "চেন ওয়াং",
+      "email": "chen@example.com",
+      "password": "password345",
+      "role": "Moderator"
+    },
+    {
+      "nameBn": "আয়শা খান",
+      "nameEn": "Aisha Khan",
+      "email": "aisha@example.com",
+      "password": "password678",
+      "role": "User",
+      "id": "6"
+    },
+    {
+      "id": "7",
+      "nameEn": "Peter Petrov",
+      "nameBn": "পিটার পেট্রোভ",
+      "email": "peter@example.com",
+      "password": "password901",
+      "role": "User"
+    },
+    {
+      "nameBn": "এমানুয়েল দুবোস",
+      "nameEn": "Emmanuelle Dubois",
+      "email": "emmanuelle@example.com",
+      "password": "password123",
+      "role": "User",
+      "id": "8"
+    },
+    {
+      "id": "9",
+      "nameEn": "Omar Hassan",
+      "nameBn": "ওমর হাসান",
+      "email": "omar@example.com",
+      "password": "password567",
+      "role": "User"
+    },
+    {
+      "id": "10",
+      "nameEn": "Natalia Ivanova",
+      "nameBn": "নাটালিয়া ইভানোভা",
+      "email": "natalia@example.com",
+      "password": "password890",
+      "role": "User"
+    },
+    {
+      "id": "11",
+      "nameEn": "Schmidt Müller",
+      "nameBn": "",
+      "email": "schmidt@example.com",
+      "password": "password147",
+      "role": "User"
+    },
+    {
+      "id": "12",
+      "nameEn": "Hanako Suzuki",
+      "nameBn": "হানাকো সুজুকি",
+      "email": "hanako@example.com",
+      "password": "password258",
+      "role": "User"
+    },
+    {
+      "id": "13",
+      "nameEn": "Miguel Rodriguez",
+      "nameBn": "মিগুয়েল রদ্রিগেজ",
+      "email": "miguel@example.com",
+      "password": "password369",
+      "role": "User"
+    },
+    {
+      "id": "14",
+      "nameEn": "Fatima Ali",
+      "nameBn": "ফাতিমা আলী",
+      "email": "fatima@example.com",
+      "password": "password470",
+      "role": "User"
+    },
+    {
+      "id": "15",
+      "nameEn": "Sarah Johnson",
+      "nameBn": "সারাহ জনসন",
+      "email": "sarah@example.com",
+      "password": "password571",
+      "role": "User"
+    },
+    {
+      "id": "16",
+      "nameEn": "Ahmed Mahmoud",
+      "nameBn": "আহমেদ মাহমুদ",
+      "email": "ahmed@example.com",
+      "password": "password672",
+      "role": "User"
+    },
+    {
+      "id": "17",
+      "nameEn": "Olga Petrova",
+      "nameBn": "ওলগা পেট্রোভা",
+      "email": "olga@example.com",
+      "password": "password773",
+      "role": "User"
+    },
+    {
+      "id": "18",
+      "nameEn": "Thomas Müller",
+      "nameBn": "",
+      "email": "thomas@example.com",
+      "password": "password874",
+      "role": "User"
+    },
+    {
+      "id": "19",
+      "nameEn": "Ayşe Yılmaz",
+      "nameBn": "",
+      "email": "ayse@example.com",
+      "password": "password975",
+      "role": "User"
+    },
+    {
+      "id": "20",
+      "nameEn": "Diego Costa",
+      "nameBn": "",
+      "email": "diego@example.com",
+      "password": "password076",
+      "role": "User"
+    }
+  ],
+  "pages": [
+    {
+      "id": "1",
+      "titleBn": "নিউজ",
+      "titleEn": "News",
+      "slugBn": "নিউজ",
+      "slugEn": "news",
+      "bodyBn": "এই পৃষ্ঠায় সর্বশেষ সংবাদ পাওয়া যাবে।",
+      "bodyEn": "This page contains the latest news.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "05:00:00"
+      }
+    },
+    {
+      "id": "2",
+      "titleBn": "খেলাধুলা",
+      "titleEn": "Sports",
+      "slugBn": "খেলাধুলা",
+      "slugEn": "sports",
+      "bodyBn": "<p>এই পৃষ্ঠায় খেলাধুলার খবর পাওয়া যাবে।</p>",
+      "bodyEn": "<p>This page contains sports news.</p>",
+      "featuredImage": "image-1.jpg",
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "05:00:00"
+      }
+    },
+    {
+      "id": "3",
+      "titleBn": "বিনোদন",
+      "titleEn": "Entertainment",
+      "slugBn": "বিনোদন",
+      "slugEn": "entertainment",
+      "bodyBn": "এই পৃষ্ঠায় বিনোদনের খবর পাওয়া যাবে।",
+      "bodyEn": "This page contains entertainment news.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "05:20:00"
+      }
+    },
+    {
+      "id": "4",
+      "titleBn": "প্রযুক্তি",
+      "titleEn": "Technology",
+      "slugBn": "প্রযুক্তি",
+      "slugEn": "technology",
+      "bodyBn": "এই পৃষ্ঠায় প্রযুক্তির খবর পাওয়া যাবে।",
+      "bodyEn": "This page contains technology news.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "05:30:00"
+      }
+    },
+    {
+      "id": "5",
+      "titleBn": "স্বাস্থ্য",
+      "titleEn": "Health",
+      "slugBn": "স্বাস্থ্য",
+      "slugEn": "health",
+      "bodyBn": "এই পৃষ্ঠায় স্বাস্থ্য সম্পর্কিত তথ্য পাওয়া যাবে।",
+      "bodyEn": "This page contains health-related information.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "05:40:00"
+      }
+    },
+    {
+      "id": "6",
+      "titleBn": "অর্থনীতি",
+      "titleEn": "Economy",
+      "slugBn": "অর্থনীতি",
+      "slugEn": "economy",
+      "bodyBn": "এই পৃষ্ঠায় অর্থনীতি সম্পর্কিত তথ্য পাওয়া যাবে।",
+      "bodyEn": "This page contains economic information.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "05:50:00"
+      }
+    },
+    {
+      "id": "7",
+      "titleBn": "শিক্ষা",
+      "titleEn": "Education",
+      "slugBn": "শিক্ষা",
+      "slugEn": "education",
+      "bodyBn": "এই পৃষ্ঠায় শিক্ষা সম্পর্কিত তথ্য পাওয়া যাবে।",
+      "bodyEn": "This page contains educational information.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "06:00:00"
+      }
+    },
+    {
+      "id": "8",
+      "titleBn": "ভ্রমণ",
+      "titleEn": "Travel",
+      "slugBn": "ভ্রমণ",
+      "slugEn": "travel",
+      "bodyBn": "এই পৃষ্ঠায় ভ্রমণ সম্পর্কিত তথ্য পাওয়া যাবে।",
+      "bodyEn": "This page contains travel information.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "06:10:00"
+      }
+    },
+    {
+      "id": "9",
+      "titleBn": "জীবনধারা",
+      "titleEn": "Lifestyle",
+      "slugBn": "জীবনধারা",
+      "slugEn": "lifestyle",
+      "bodyBn": "এই পৃষ্ঠায় জীবনধারা সম্পর্কিত তথ্য পাওয়া যাবে।",
+      "bodyEn": "This page contains lifestyle information.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "06:20:00"
+      }
+    },
+    {
+      "id": "10",
+      "titleBn": "আন্তর্জাতিক",
+      "titleEn": "International",
+      "slugBn": "আন্তর্জাতিক",
+      "slugEn": "international",
+      "bodyBn": "এই পৃষ্ঠায় আন্তর্জাতিক খবর পাওয়া যাবে।",
+      "bodyEn": "This page contains international news.",
+      "featuredImage": null,
+      "published": "Yes",
+      "createdBy": "Admin",
+      "createdAt": {
+        "date": "2024-08-28",
+        "time": "06:30:00"
+      }
+    }
+  ]
+}

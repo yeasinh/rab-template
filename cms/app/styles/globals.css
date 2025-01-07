@@ -1,0 +1,41 @@
+html,
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.ql-toolbar .ql-formats {
+  display: flex;
+}
+
+.ql-toolbar .ql-formats button,
+.ql-toolbar .ql-formats .ql-picker {
+  margin-right: 8px;
+}
+
+.ql-toolbar .ql-formats .ql-picker {
+  margin-right: 12px;
+}
+
+.ql-toolbar .ql-formats button:last-child,
+.ql-toolbar .ql-formats .ql-picker:last-child {
+  margin-right: 0;
+}
+
+.ql-editor.ql-blank::before {
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  appearance: none;
+}

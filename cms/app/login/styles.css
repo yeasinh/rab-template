@@ -1,0 +1,93 @@
+.login-background {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../assets/images/login-images/rab-sign-in-background-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.login-container {
+  width: 450px;
+  height: 600px;
+  top: 168px;
+  left: 495px;
+  border-radius: 10px;
+  padding: 50px, 30px, 50px, 30px;
+  gap: 30px;
+  background-color: rgba(122, 122, 122, 0.5);
+}
+
+.form-container {
+  width: 390px;
+}
+
+.input-container {
+  border: 1px solid #28a745;
+  background-color: #ffffff;
+  color: #757575;
+  font-size: 14px;
+  height: 40px;
+}
+
+@media (min-width: 576px) {
+  .login-container {
+    max-width: 75%;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .login-container {
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-container {
+    max-width: 30%;
+  }
+}
+
+#selector select option {
+  color: #333;
+  position: relative;
+  top: 5px;
+}
+
+/*==================================================
+ remove the original arrow in select option dropdown
+ ==================================================*/
+
+#selector {
+  width: 130px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+select.input {
+  height: 40px !important;
+  line-height: 25px !important;
+  background: none !important;
+}
+
+select + i.fa {
+  float: right;
+  margin-top: -28px;
+  margin-right: 9px;
+  pointer-events: none;
+  padding-right: 5px;
+}
