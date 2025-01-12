@@ -1,0 +1,749 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+  binaryTargets   = ["linux-musl-arm64-openssl-3.0.x", "linux-arm64-openssl-3.0.x", "debian-openssl-3.0.x", "windows"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id                     Int                     @id @default(autoincrement())
+  email                  String                  @unique
+  firstName              String?
+  lastName               String?
+  password               String
+  rememberToken          String
+  emailVarifiedAt        String
+  createdAt              DateTime                @default(now())
+  updateAt               DateTime?               @default(now())
+  userType               UserType                @default(OTHER)
+  adminPortalPermissions adminPortalPermissions?
+}
+
+model menus {
+  id        Int       @id @default(autoincrement())
+  name      String?
+  createdAt DateTime  @default(now())
+  updateAt  DateTime? @default(now())
+}
+
+model menuItems {
+  id        Int       @id @default(autoincrement())
+  labelBn   String
+  labelEn   String
+  link      String
+  parent    Int
+  sort      Int
+  class     String
+  menu      Int
+  depth     Int
+  createdAt DateTime  @default(now())
+  updateAt  DateTime? @default(now())
+}
+
+model medias {
+  id            Int       @id @default(autoincrement())
+  titleBn       String
+  titleEn       String
+  subTitleBn    String
+  subTitleEn    String
+  mediaFilePath String?
+  isPublished   Publish   @default(NO)
+  mediaType     MediaType @default(SLIDER)
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime? @default(now())
+}
+
+model gallary {
+  id             Int       @id @default(autoincrement())
+  titleBn        String?
+  titleEn        String?
+  subTitleBn     String?
+  subTitleEn     String?
+  gallaryFiles   String[]
+  gallaryType    GallaryType @default(PHOTO)
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime? @default(now())
+}
+
+model addsBanner {
+  id             Int       @id @default(autoincrement())
+  bannerFilePath String?
+  isPublished    Publish   @default(NO)
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime? @default(now())
+}
+
+model battalions {
+  id                Int                 @id @default(autoincrement())
+  nameBn            String
+  nameEn            String
+  url               String
+  order             Int
+  logoFilePath      String?
+  mapFilePath       String?
+  isPublished       Publish             @default(NO)
+  createdAt         DateTime            @default(now())
+  updateAt          DateTime?           @default(now())
+}
+
+model battalionDetails {
+  id                  Int       @id @default(autoincrement())
+  responsibleAreaBn   String?
+  responsibleAreaEn   String?
+  detailEn            String?
+  detailBn            String?
+  email               String?
+  battalionId         Int
+  createdAt           DateTime  @default(now())
+  updateAt            DateTime? @default(now())
+}
+
+model battalionContact {
+  id                Int       @id @default(autoincrement())
+  recruitmentId     Int
+  campId            Int?
+  companyId         Int?
+  responsibleAreaBn String?
+  responsibleAreaEn String?
+  mobileBn          String
+  mobileEn          String
+  telephoneBn       String
+  telephoneEn       String
+  email             String?
+  districtIds       Int[]
+  policeStationIds  Int[]
+  battalionId       Int
+  createdAt         DateTime  @default(now())
+  updateAt          DateTime? @default(now())
+}
+
+model rabRolesOrAdvices {
+  id               Int           @id @default(autoincrement())
+  titleBn          String
+  titleEn          String
+  roleOrAdviceIcon String?
+  type             RoleAndAdvice
+  createdAt        DateTime      @default(now())
+  updateAt         DateTime?     @default(now())
+}
+
+model rabRoleOrAdviceItems {
+  id        Int           @id @default(autoincrement())
+  nameBn    String
+  nameEn    String
+  createdAt DateTime      @default(now())
+  updateAt  DateTime?     @default(now())
+  type      RoleAndAdvice
+}
+
+model rabMobileApps {
+  id                 Int       @id @default(autoincrement())
+  headerBn           String
+  headerEn           String
+  subHeaderBn        String
+  subHeaderEn        String
+  mobileAppImagePath String?
+  createdAt          DateTime  @default(now())
+  updateAt           DateTime? @default(now())
+  appStoreImage      String?
+  appStoreLink       String?
+  playStoreImage     String?
+  playStoreLink      String?
+}
+
+model rabMobileAppFeatures {
+  id            Int       @id @default(autoincrement())
+  nameBn        String
+  nameEn        String
+  descriptionBn String
+  descriptionEn String
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime? @default(now())
+  thumbnailPath String?
+}
+
+model overView {
+  id            Int       @id @default(autoincrement())
+  dgImagePath   String?
+  dgNameBn      String
+  dgNameEn      String
+  descriptionBn String
+  descriptionEn String
+  titleBn       String
+  titleEn       String
+  subTitleBn    String
+  subTitleEn    String
+  isPublished   Publish   @default(NO)
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime? @default(now())
+}
+
+model members {
+  id            Int        @id @default(autoincrement())
+  nameBn        String
+  nameEn        String
+  designationBn String?
+  designationEn String?
+  memberImgPath String?
+  descriptionBn String?
+  descriptionEn String?
+  memberTypeId  Int
+  createdAt     DateTime?   @default(now())
+  updateAt      DateTime?  @default(now())
+}
+
+model dgs {
+  id            Int        @id @default(autoincrement())
+  nameBn        String
+  nameEn        String
+  designationBn String?
+  designationEn String?
+  memberImgPath String?
+  descriptionBn String?
+  descriptionEn String?
+  dgType        DGType      @default(FORMERDG)
+  createdAt     DateTime?   @default(now())
+  updateAt      DateTime?   @default(now())
+}
+
+model memberType {
+  id            Int        @id @default(autoincrement())
+  nameBn        String
+  nameEn        String
+  createdAt     DateTime?   @default(now())
+  updateAt      DateTime?  @default(now())
+}
+
+model wingLogo {
+  id           Int     @id @default(autoincrement())
+  wingLogoPath String?
+}
+
+model emergencyContact {
+  id             Int       @id @default(autoincrement())
+  titleEn        String
+  titleBn        String
+  phoneNumberEn  String
+  phoneNumberBn  String
+  mobileNumberEn String
+  mobileNumberBn String
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime? @default(now())
+  isPublished    Publish   @default(NO)
+}
+
+model logoAndTitle {
+  id             Int       @id @default(autoincrement())
+  headerLogoPath String?
+  titleEn        String
+  titleBn        String
+  isPublished    Publish   @default(NO)
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime? @default(now())
+}
+
+model searchBar {
+  id            Int       @id @default(autoincrement())
+  placeHolderEn String
+  placeHolderBn String
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime? @default(now())
+}
+
+model quickLinkInfo {
+  id        Int                  @id @default(autoincrement())
+  titleEn   String
+  titleBn   String
+  isWebsite SocialMediaORWebsite
+  createdAt DateTime             @default(now())
+  updateAt  DateTime?            @default(now())
+}
+
+model quickLinks {
+  id        Int                  @id @default(autoincrement())
+  nameEn    String
+  nameBn    String
+  isWebsite SocialMediaORWebsite
+  iconPath  String?
+  url       String
+  createdAt DateTime             @default(now())
+  updateAt  DateTime?            @default(now())
+}
+
+model contactInfo {
+  id              Int       @id @default(autoincrement())
+  addressEn       String
+  addressBn       String
+  addressIconPath String?
+  phoneEn         String
+  phoneBn         String
+  phoneIconPath   String?
+  mobileEn        String
+  mobileBn        String
+  mobileIconPath  String?
+  faxEn           String
+  faxBn           String
+  faxIconPath     String?
+  createdAt       DateTime  @default(now())
+  updateAt        DateTime? @default(now())
+}
+
+model footerLogo {
+  id             Int       @id @default(autoincrement())
+  footerLogoPath String?
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime? @default(now())
+}
+
+model nocs {
+  id               Int       @id @default(autoincrement())
+  nameEn           String
+  nameBn           String
+  nocDate          DateTime  @default(now())
+  nocFilePath      String?
+  isPreviewButton  Check     @default(NO)
+  isDownloadButton Check     @default(NO)
+  createdAt        DateTime  @default(now())
+  updateAt         DateTime? @default(now())
+}
+
+model messages {
+  id               Int       @id @default(autoincrement())
+  nameEn           String
+  nameBn           String
+  designationBn    String
+  designationEn    String
+  profilePhotoPath String?
+  messageFilePath  String?
+  isPublished      Publish   @default(NO)
+  createdAt        DateTime  @default(now())
+  updateAt         DateTime? @default(now())
+}
+
+model activities {
+  id                Int       @id @default(autoincrement())
+  headingEn         String
+  headingBn         String
+  descriptionBn     String
+  descriptionEn     String
+  activityImagePath String[]
+  acitivityDate     DateTime? @default(now())
+  isPublished       Publish   @default(NO)
+  createdAt         DateTime  @default(now())
+  updateAt          DateTime? @default(now())
+}
+
+model news {
+  id                Int       @id @default(autoincrement())
+  titleBn           String
+  titleEn           String
+  slugTitleBn       String
+  slugTitleEn       String
+  bodyBn            String
+  bodyEn            String
+  featuredImagePath String?
+  isPublished       Publish   @default(NO)
+  createdAt         DateTime  @default(now())
+  updateAt          DateTime? @default(now())
+}
+
+model awardCategories {
+  id          Int       @id @default(autoincrement())
+  titleBn     String
+  titleEn     String
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  awards      awards[]
+}
+
+model awards {
+  id                Int             @id @default(autoincrement())
+  achieverBn        String
+  achieverEn        String
+  designationBn     String
+  designationEn     String
+  awardDate         DateTime        @default(now())
+  awardCategoryId   Int
+  featuredImagePath String?
+  isPublished       Publish         @default(NO)
+  createdAt         DateTime        @default(now())
+  updateAt          DateTime?       @default(now())
+  awardCategories   awardCategories @relation(fields: [awardCategoryId], references: [id])
+}
+
+model tenders {
+  id               Int        @id @default(autoincrement())
+  nameEn           String
+  nameBn           String
+  closingDate      DateTime   @default(now())
+  tenderFilePath   String?
+  isPreviewButton  Check      @default(NO)
+  isDownloadButton Check      @default(NO)
+  tenderType       TenderType @default(RECENT)
+  createdAt        DateTime   @default(now())
+  updateAt         DateTime?  @default(now())
+}
+
+model publications {
+  id                  Int       @id @default(autoincrement())
+  titleBn             String
+  titleEn             String
+  authorNameBn        String
+  authorNameEn        String
+  publisherBn         String
+  publisherEn         String
+  publicationYear     DateTime
+  publicationFilePath String?
+  isPreviewButton     Check     @default(NO)
+  isDownloadButton    Check     @default(NO)
+  isPublished         Publish   @default(NO)
+  createdAt           DateTime  @default(now())
+  updateAt            DateTime? @default(now())
+}
+
+model policeStations {
+  id          Int       @id @default(autoincrement())
+  titleBn     String
+  titleEn     String
+  districtId  Int
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+  districts   districts @relation(fields: [districtId], references: [id])
+}
+
+model districts {
+  id             Int              @id @default(autoincrement())
+  titleBn        String
+  titleEn        String
+  isPublished    Publish          @default(NO)
+  createdAt      DateTime         @default(now())
+  updateAt       DateTime?        @default(now())
+  policeStations policeStations[]
+}
+
+model notificationEmail {
+  id               Int              @id @default(autoincrement())
+  emailAddress     String
+  isPublished      Publish          @default(NO)
+  createdAt        DateTime         @default(now())
+  updateAt         DateTime?        @default(now())
+  battalionId      Int?
+  organogramWingId Int?
+  unit             Unit?            @default(HQ)
+  emailType        EmailType? 
+}
+
+model crimeTypes {
+  id          Int       @id @default(autoincrement())
+  nameBn      String
+  nameEn      String
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+}
+
+model reportCrimes {
+  id              Int       @id @default(autoincrement())
+  name            String
+  mobile          String
+  email           String?
+  details         String?
+  crimeTypeId     Int?
+  policeStationId Int?
+  districtId      Int?
+  attachmentPath  String?
+  createdAt       DateTime  @default(now())
+  updateAt        DateTime? @default(now())
+}
+
+model serviceBoxes {
+  id              Int               @id @default(autoincrement())
+  titleBn         String
+  titleEn         String
+  serviceLogoPath String?
+  isPublished     Publish           @default(NO)
+  createdAt       DateTime          @default(now())
+  updateAt        DateTime?         @default(now())
+}
+
+model serviceBoxItems {
+  id           Int          @id @default(autoincrement())
+  titleBn      String
+  titleEn      String
+  url          String?
+  serviceFilePath   String[]
+  serviceBoxId Int
+  createdAt    DateTime     @default(now())
+  updateAt     DateTime?    @default(now())
+}
+
+model organograms {
+  id               Int               @id @default(autoincrement())
+  nameBn           String
+  nameEn           String
+  designationBn    String
+  designationEn    String
+  order            Int
+  profileImagePath String?
+  isPublished      Publish           @default(NO)
+  createdAt        DateTime          @default(now())
+  updateAt         DateTime?         @default(now())
+}
+
+model organogramWings {
+  id                Int                 @id @default(autoincrement())
+  nameBn            String
+  nameEn            String
+  descriptionBn     String?
+  descriptionEn     String?
+  logoPath          String?
+  link              String
+  organogramId      Int
+  createdAt         DateTime            @default(now())
+  updateAt          DateTime?           @default(now())
+}
+
+model monogram {
+  id               Int               @id @default(autoincrement())
+  titleBn          String
+  titleEn          String
+  mongramLogpPath  String?
+  isPublished      Publish           @default(NO)
+  monogramItems    monogramItems[]
+  createdAt        DateTime          @default(now())
+  updateAt         DateTime?         @default(now())
+}
+
+model monogramItems {
+  id               Int               @id @default(autoincrement())
+  titleBn          String
+  titleEn          String
+  subTitleBn       String
+  subTitleEn       String
+  monogramId       Int
+  monogram         monogram          @relation(fields: [monogramId], references: [id])
+  createdAt        DateTime          @default(now())
+  updateAt         DateTime?         @default(now())
+}
+
+model rabZones {
+  id          Int       @id @default(autoincrement())
+  nameBn      String
+  nameEn      String
+  zoneType    ZoneType
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+}
+
+model recruitmentTypes {
+  id          Int       @id @default(autoincrement())
+  nameBn      String
+  nameEn      String
+  order       Int
+  appliedFor  Unit      @default(BATTALION)
+  isPublished Publish   @default(NO)
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+}
+
+model opinios {
+  id          Int       @id @default(autoincrement())
+  name        String?
+  email       String?
+  mobileNo    String?
+  nid         String?
+  description String
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime? @default(now())
+}
+
+model others {
+  id               Int        @id @default(autoincrement())
+  nameBn           String
+  nameEn           String
+  creationDate     DateTime
+  otherfilePath    String?
+  isPreviewButton  Check      @default(NO)
+  isDownloadButton Check      @default(NO)
+  isPublished      Publish    @default(NO)
+  othersType       OthersType
+  createdAt        DateTime   @default(now())
+  updateAt         DateTime?  @default(now())
+}
+
+model phoneDirectory {
+  id                Int       @id @default(autoincrement())
+  organogramWingId  Int?
+  battalionId       Int?
+  recruitmentId     Int
+  recruitmentNameBn String
+  recruitmentNameEn String
+  email             String
+  mobileNo          String
+  phoneNo           String
+  districtId        Int[]
+  districtNameEn    String[]
+  districtNameBn    String[]
+  thanaId           Int[]
+  thanaNameEn       String[]
+  thanaNameBn       String[]
+  isPublished       Publish   @default(NO)
+  createdAt         DateTime  @default(now())
+  updateAt          DateTime? @default(now())
+}
+
+model adminMenus {
+  id         Int          @id @default(autoincrement())
+  menuName   String
+  url        String?
+  createdAt  DateTime     @default(now())
+  updateAt   DateTime?    @default(now())
+  permissons permissons[]
+}
+
+model adminPortalPermissions {
+  id           Int       @id @default(autoincrement())
+  userId       Int       @unique
+  permissionId Int[]
+  createdAt    DateTime  @default(now())
+  updateAt     DateTime? @default(now())
+  users        users?     @relation(fields: [userId], references: [id])
+}
+
+model permissons {
+  id               Int        @id @default(autoincrement())
+  menuId           Int
+  viewPermission   Check      @default(YES)
+  editPermission   Check      @default(NO)
+  deletePermission Check      @default(NO)
+  createdAt        DateTime   @default(now())
+  updateAt         DateTime?  @default(now())
+  adminMenus       adminMenus @relation(fields: [menuId], references: [id])
+}
+
+model faqs {
+  id               Int        @id @default(autoincrement())
+  titleBn          String
+  titleEn          String
+  descriptionBn    String
+  descriptionEn    String
+  isPublished      Publish   @default(NO)
+  createdAt        DateTime   @default(now())
+  updateAt         DateTime?  @default(now())
+}
+
+model quickContact {
+  id               Int        @id @default(autoincrement())
+  name             String?
+  email            String?
+  mobileNo         String?
+  nid              String?
+  message          String
+  createdAt        DateTime   @default(now())
+  updateAt         DateTime?  @default(now())
+}
+
+model emailTemplate{
+  id               Int        @id @default(autoincrement())
+  subject          String
+  body             String
+  templateType     EmailTemplateType @default(CHANGEPASSWORD)
+  createdAt        DateTime   @default(now())
+  updateAt         DateTime?  @default(now())
+}
+
+model emailLog{
+  id               Int        @id @default(autoincrement())
+  subject          String
+  toEmail          String[]
+  body             String
+  attachments      String?
+  createdAt        DateTime   @default(now())
+  updateAt         DateTime?  @default(now())
+}
+
+enum Publish {
+  YES @map("1")
+  NO  @map("0")
+}
+
+enum Check {
+  YES @map("1")
+  NO  @map("0")
+}
+
+enum UserType {
+  ADMIN @map("1")
+  OTHER @map("0")
+}
+
+enum RoleAndAdvice {
+  ROLE
+  ADVICE
+  MISSION
+  VISSION
+}
+
+enum SocialMediaORWebsite {
+  WEBSITE
+  SOCIALMEDIA
+}
+
+enum MediaType {
+  SLIDER
+  VEDIO
+  PHOTO
+  TVC
+}
+
+enum TenderType {
+  RECENT
+  ARCHIEVE
+}
+
+enum OthersType {
+  INNOVATION
+  APA
+}
+
+enum DGType {
+  FORMERDG
+  MARTYRDG
+}
+
+enum ZoneType {
+  AREA
+  CAMP
+  COMPANY
+}
+
+enum Unit {
+  DGOFFICE
+  HQ
+  BATTALION
+}
+
+enum EmailType {
+  QUICKCONTACT
+  OPINION
+}
+
+enum GallaryType {
+  PHOTO
+  VIDEO
+}
+
+enum EmailTemplateType {
+  REPORTCRIME
+  QUICKCONTACT
+  OPINION
+  CHANGEPASSWORD
+}
+

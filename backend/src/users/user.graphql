@@ -1,0 +1,53 @@
+type User {
+  id: Int!
+  firstName: String
+  lastName: String
+  email: String!
+  password: String!
+  rememberToken: String!
+  userType: Int!
+  emailVarifiedAt: String
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+type Auth {
+  name: String!
+  token: String!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  userType: Int!
+  createdAt: DateTime!
+}
+
+input UpdateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String
+  password: String
+  userType: Int
+  createdAt: DateTime
+  id: Int!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Query {
+  users(page: Float!, limit: Float!): [User!]!
+  user(id: Int!): User!
+}
+
+type Mutation {
+  registerUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  login(data: LoginInput!): Auth!
+}

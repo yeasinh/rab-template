@@ -1,0 +1,68 @@
+type Media {
+  id: Int!
+  titleBn: String!
+  titleEn: String!
+  subTitleBn: String!
+  subTitleEn: String!
+
+  """
+  Media Image
+  """
+  mediaFilePath: String
+  isPublished: Publish!
+  mediaType: MediaType!
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+enum MediaType {
+  SLIDER
+  VEDIO
+  PHOTO
+  TVC
+}
+
+"""
+Upload files
+"""
+scalar Upload
+
+type Query {
+  findAllMedia(page: Float!, limit: Float!): [Media!]!
+  findOneMedia(id: Float!): Media!
+}
+
+type Mutation {
+  createMedia(createMediaInput: CreateMediaInput!): Media!
+  updateMedia(updateMediaInput: UpdateMediaInput!): Media!
+  removeMedia(id: Float!): Media!
+}
+
+input CreateMediaInput {
+  titleBn: String!
+  titleEn: String!
+  subTitleBn: String!
+  subTitleEn: String!
+  isPublished: Publish! = NO
+  mediaType: MediaType! = SLIDER
+
+  """
+  Input for the media files.
+  """
+  mediaFilePath: Upload!
+}
+
+input UpdateMediaInput {
+  id: Int!
+  titleBn: String!
+  titleEn: String!
+  subTitleBn: String!
+  subTitleEn: String!
+  isPublished: Publish! = NO
+  mediaType: MediaType! = SLIDER
+
+  """
+  Input for the media  files.
+  """
+  mediaFilePath: Upload!
+}

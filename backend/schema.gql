@@ -1,0 +1,278 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: Int!
+  firstName: String
+  lastName: String
+  email: String!
+  password: String!
+  rememberToken: String!
+  userType: UserType!
+  emailVarifiedAt: String
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+enum UserType {
+  ADMIN
+  OTHER
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type AdminMenu {
+  id: Int!
+  menuName: String!
+  url: String!
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+type Permission {
+  id: Int!
+  menuId: Int!
+  viewPermission: Check!
+  deletePermission: Check!
+  editPermission: Check!
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+enum Check {
+  YES
+  NO
+}
+
+type Auth {
+  id: Int!
+  name: String!
+  token: String!
+  userType: UserType!
+  permissionId: [Int!]!
+  permissions: [Permission!]!
+  menus: [AdminMenu!]!
+}
+
+type Media {
+  id: Int!
+  titleBn: String!
+  titleEn: String!
+  subTitleBn: String!
+  subTitleEn: String!
+
+  """Media Image"""
+  mediaFilePath: String
+  isPublished: Publish!
+  mediaType: MediaType!
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+enum Publish {
+  YES
+  NO
+}
+
+enum MediaType {
+  SLIDER
+  VEDIO
+  PHOTO
+  TVC
+}
+
+type Publication {
+  id: Int!
+  titleBn: String!
+  titleEn: String!
+  authorNameBn: String!
+  authorNameEn: String!
+  publisherBn: String!
+  publisherEn: String!
+  publicationYear: DateTime!
+
+  """publication File"""
+  publicationFilePath: String
+  isPreviewButton: Check!
+  isDownloadButton: Check!
+  isPublished: Publish!
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+type AdminPortalPermission {
+  id: Int!
+  userId: Int!
+  permissionId: [Int!]!
+  createdAt: DateTime!
+  updateAt: DateTime
+}
+
+"""Upload files"""
+scalar Upload
+
+type Query {
+  users(page: Float!, limit: Float!): [User!]!
+  user(id: Int!): User!
+  findAllMedia(page: Float!, limit: Float!): [Media!]!
+  findOneMedia(id: Float!): Media!
+  findAllPublication(page: Float!, limit: Float!): [Publication!]!
+  findOnePublication(id: Float!): Publication!
+  findAllAdminMenu(page: Float!, limit: Float!): [AdminMenu!]!
+  findOneAdminMenu(id: Float!): AdminMenu!
+  findAllPermission(page: Float!, limit: Float!): [Permission!]!
+  findOnePermission(id: Float!): Permission!
+  findAllAdminPortalPermission(page: Float!, limit: Float!): [AdminPortalPermission!]!
+  findOneAdminPortalPermission(id: Float!): AdminPortalPermission!
+}
+
+type Mutation {
+  registerUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  forgotPassword(email: String!): User!
+  changePassword(changePasswordInput: ChangePasswordInput!): User!
+  removeUser(id: Int!): User!
+  login(data: LoginInput!): Auth!
+  createMedia(createMediaInput: CreateMediaInput!): Media!
+  updateMedia(updateMediaInput: UpdateMediaInput!): Media!
+  removeMedia(id: Float!): Media!
+  createPublication(createPublicationInput: CreatePublicationInput!): Publication!
+  updatePublication(updatePublicationInput: UpdatePublicationInput!): Publication!
+  removePublication(id: Float!): Publication!
+  createAdminMenu(createAdminMenuInput: CreateAdminMenuInput!): AdminMenu!
+  updateAdminMenu(updateAdminMenuInput: UpdateAdminMenuInput!): AdminMenu!
+  removeAdminMenu(id: Float!): AdminMenu!
+  createPermission(createPermissionInput: CreatePermissionInput!): Permission!
+  updatePermission(updatePermissionInput: UpdatePermissionInput!): Permission!
+  removePermission(id: Float!): Permission!
+  createAdminPortalPermission(createAdminPortalPersmissionInput: CreateAdminPortalPersmissionInput!): AdminPortalPermission!
+  updateAdminPortalPermission(updateAdminPortalPersmissionInput: UpdateAdminPortalPersmissionInput!): AdminPortalPermission!
+  removeAdminPortalPermission(id: Float!): AdminPortalPermission!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  userType: UserType! = OTHER
+}
+
+input UpdateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String
+  password: String
+  userType: UserType = OTHER
+  id: Int!
+}
+
+input ChangePasswordInput {
+  email: String!
+  password: String!
+  rememberToken: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input CreateMediaInput {
+  titleBn: String!
+  titleEn: String!
+  subTitleBn: String!
+  subTitleEn: String!
+  isPublished: Publish! = NO
+  mediaType: MediaType! = SLIDER
+
+  """Input for the media files."""
+  mediaFilePath: Upload!
+}
+
+input UpdateMediaInput {
+  id: Int!
+  titleBn: String!
+  titleEn: String!
+  subTitleBn: String!
+  subTitleEn: String!
+  isPublished: Publish! = NO
+  mediaType: MediaType! = SLIDER
+
+  """Input for the media  files."""
+  mediaFilePath: Upload!
+}
+
+input CreatePublicationInput {
+  titleBn: String!
+  titleEn: String!
+  authorNameBn: String!
+  authorNameEn: String!
+  publisherBn: String!
+  publisherEn: String!
+  publicationYear: String!
+
+  """Input for the Noc image files."""
+  publicationFilePath: Upload!
+  isPreviewButton: Check! = NO
+  isDownloadButton: Check! = NO
+  isPublished: Publish! = NO
+}
+
+input UpdatePublicationInput {
+  id: Int!
+  titleBn: String!
+  titleEn: String!
+  authorNameBn: String!
+  authorNameEn: String!
+  publisherBn: String!
+  publisherEn: String!
+  publicationYear: String!
+
+  """Input for the Noc image files."""
+  publicationFilePath: Upload!
+  isPreviewButton: Check! = NO
+  isDownloadButton: Check! = NO
+  isPublished: Publish! = NO
+}
+
+input CreateAdminMenuInput {
+  menuName: String!
+  url: String!
+}
+
+input UpdateAdminMenuInput {
+  id: Int!
+  menuName: String!
+  url: String!
+}
+
+input CreatePermissionInput {
+  menuId: Int!
+  viewPermission: Check! = YES
+  deletePermission: Check! = NO
+  editPermission: Check! = NO
+}
+
+input UpdatePermissionInput {
+  id: Int!
+  menuId: Int!
+  viewPermission: Check! = YES
+  deletePermission: Check! = NO
+  editPermission: Check! = NO
+}
+
+input CreateAdminPortalPersmissionInput {
+  userId: Int!
+  permissionId: [Int!]!
+}
+
+input UpdateAdminPortalPersmissionInput {
+  id: Int!
+  userId: Int!
+  permissionId: [Int!]!
+}

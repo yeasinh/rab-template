@@ -10,6 +10,9 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": { 
+      "@scalars/*": ["../../scalars/*"],
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
